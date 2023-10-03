@@ -6,9 +6,9 @@ function Login() {
         "username": "",
         "password": "",
     })
-    const { setUser } = useContext(userContext);
+    const { setUser, login } = useContext(userContext);
 
-    const inputHandle = (e) => {
+    const inputHandle = (e) => { 
         setEnteredUser((prev) => {
             return ({
                 ...prev, [e.target.name]: e.target.value
@@ -19,7 +19,9 @@ function Login() {
     const loginHandler = () => {
         // api call
         console.log(enteredUser)
-        setUser(enteredUser)
+        // setUser(enteredUser)
+        login(enteredUser)
+        alert("Login successful!")
         setEnteredUser({
             "username" : "",
             "password" : "",
