@@ -1,21 +1,23 @@
 import { useContext } from 'react'
 import './App.css';
-import ContextProvider from './context/ContextProvider';
 import { userContext } from './context/Context';
+import Login from './components/Login';
+import Profile from './components/Profile';
 
 
 
 function App() {
-  const ctx = useContext(userContext);
-console.log()
+  const { user } = useContext(userContext);
+  console.log("user in app", user)
+  console.log('APP COMP')
 
   return (
     <>
-      <ContextProvider>
-        <div>
+      <div>
         <h2>app</h2>
-        </div>
-      </ContextProvider>
+        {user ? "" : <Login />}
+        {user ? <Profile /> : ""}
+      </div>
     </>
   )
 }
